@@ -12,7 +12,7 @@
 
 1. Склонировать этот репозиторий
 ```
-https://github.com/mgsvtts/RealIT.git
+git clone https://github.com/mgsvtts/RealIT.git
 ```
 2. Перейти в папку проекта
 3. Запустить проект
