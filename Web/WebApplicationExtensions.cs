@@ -21,6 +21,7 @@ using Presentation.BackgroundServices;
 using Presentation.Filters;
 using Serilog;
 using Web.HealthChecks;
+using Web.Swagger;
 using ZiggyCreatures.Caching.Fusion;
 using ZiggyCreatures.Caching.Fusion.Serialization.SystemTextJson;
 
@@ -33,36 +34,8 @@ public static class WebApplicationExtensions
 {
     public static WebApplicationBuilder AddPresentation(this WebApplicationBuilder builder)
     {
-        builder.Services.AddSwaggerGen(opt =>
-        {
-            opt.EnableAnnotations();
-            opt.DocumentFilter<HealthChecksFilter>();
-            opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            {
-                In = ParameterLocation.Header,
-                Description = "Please enter Bearer token",
-                Name = "Authorization",
-                Type = SecuritySchemeType.Http,
-                BearerFormat = "JWT",
-                Scheme = "bearer"
-            });
-
-            opt.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    []
-                }
-            });
-        });
-
+        builder.Services.AddSwaggerDocumentation();
+        
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {

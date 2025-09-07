@@ -14,7 +14,7 @@ namespace Presentation.Controllers.Payments;
 public sealed class PaymentController(IPaymentService _paymentService) : ControllerBase
 {
     [HttpPost]
-    [SwaggerOperation(Summary = "Creates the payment link using BrusnikaPay")]
+    [SwaggerOperation(Summary = "Creates the payment link using BrusnikaPay (you must be authorized)")]
     public async Task<ActionResult<CreatePaymentResponse>> Create(CreatePaymentRequest request, CancellationToken token)
     {
         var result = await _paymentService.CreateAsync(new CreatePaymentDto
