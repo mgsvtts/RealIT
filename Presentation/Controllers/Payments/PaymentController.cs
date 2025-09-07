@@ -13,7 +13,7 @@ namespace Presentation.Controllers.Payments;
 public sealed class PaymentController(IPaymentService _paymentService) : ControllerBase
 {
     [HttpPost]
-    public async Task<IResult> Create(CreatePaymentRequest request, CancellationToken token)
+    public async Task<ActionResult<CreatePaymentResult>> Create(CreatePaymentRequest request, CancellationToken token)
     {
         var response = await _paymentService.CreateAsync(new CreatePaymentDto
         {
@@ -23,6 +23,6 @@ public sealed class PaymentController(IPaymentService _paymentService) : Control
             UserIp = HttpContext.Connection.RemoteIpAddress
         }, token);
 
-        return Results.Ok(response);
+        return Ok(response);
     }
 }

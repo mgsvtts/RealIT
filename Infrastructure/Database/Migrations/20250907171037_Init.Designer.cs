@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Database.Migrations
 {
     [DbContext(typeof(PaymentDbContext))]
-    [Migration("20250906230931_Init")]
+    [Migration("20250907171037_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -43,6 +43,10 @@ namespace Infrastructure.Database.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
+
+                    b.Property<Guid>("ExternalId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("external_id");
 
                     b.Property<int>("PaymentMethod")
                         .HasColumnType("integer")

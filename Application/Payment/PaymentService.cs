@@ -34,7 +34,11 @@ public sealed class PaymentService(
 
         _logger.LogInformation("Got payment details: {@PaymentDetails}", form);
 
-        operation.Update(form.Data.Status, form.Data.Amount, form.Data.AmountCommission);
+        operation.Update(
+            form.Data.Status,
+            form.Data.Amount,
+            form.Data.AmountCommission,
+            form.Data.Id);
 
         _db.Operations.Add(operation);
         
@@ -94,7 +98,8 @@ public sealed class PaymentService(
                 operation.Update(
                     brusnikaOperation.Status,
                     brusnikaOperation.Amount,
-                    brusnikaOperation.AmountCommission);
+                    brusnikaOperation.AmountCommission,
+                    brusnikaOperation.Id);
             }
             
             skip += take;
@@ -107,7 +112,10 @@ public sealed class PaymentService(
     {
         var operation = await GetOperationAsync(request.OperationId, token);
         
-        operation.Update(request.NewStatus, request.Amount, request.Commission);
+        operation.Update(
+            request.NewStatus,
+            request.Amount,
+            request.Commission);
 
         await _db.SaveChangesAsync(token);
     }

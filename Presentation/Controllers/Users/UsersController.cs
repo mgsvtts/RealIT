@@ -1,6 +1,8 @@
 ﻿using Application.Users;
 using Application.Users.Dto;
 using Application.Users.Dto.GetOperations;
+using Application.Users.UserService;
+using Domain.Operations;
 using Domain.Users.ValueObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,20 +19,20 @@ public sealed class UsersController(IUsersService _service) : ControllerBase
 {
     [HttpPut]
     [AllowAnonymous]
-    public async Task<IResult> Login(LoginRequest request, CancellationToken token)
+    public async Task<ActionResult<LoginResponse>> Login(LoginRequest request, CancellationToken token)
     {
         var (user, created) = await _service.GetOrCreateUserAsync(new Login(request.Login), token);
 
         if (created)
         {
-            return Results.Created("", LoginResponse.FromUser(user));
+            return Created("", LoginResponse.FromUser(user));
         }
         
-        return Results.Ok(LoginResponse.FromUser(user));
+        return Ok(LoginResponse.FromUser(user));
     }
     
     [HttpGet("operations")]
-    public async Task<IResult> GetOperations([FromQuery]GetOperationsRequest request, CancellationToken token)
+    public async Task<ActionResult<CursorPagination<Operation, Guid>>> GetOperations([FromQuery]GetOperationsRequest request, CancellationToken token)
     {
         var operations = await _service.GetOperationsAsync(new GetOperationsDto
         {
@@ -43,6 +45,6 @@ public sealed class UsersController(IUsersService _service) : ControllerBase
             UserId = HttpContext.GetUserIdOrThrow()
         }, token);
 
-        return Results.Ok(operations);
+        return Ok(operations);
     }
 }

@@ -3,20 +3,12 @@ using System.Net.Mime;
 using System.Text;
 using System.Text.Json;
 using Infrastructure.HttpClients.BrusnikaPay.Dto;
+using Infrastructure.HttpClients.BrusnikaPay.Dto.BankItem;
 using Infrastructure.HttpClients.BrusnikaPay.Dto.Operations;
 using Infrastructure.HttpClients.BrusnikaPay.Dto.Payment;
 using Infrastructure.HttpClients.BrusnikaPay.Dto.Payment.Request;
 
 namespace Infrastructure.HttpClients.BrusnikaPay;
-
-public interface IBrusnikaPayHttpClient
-{
-    Task<BrusnikaPayResponse<PaymentResponse>> FullPaymentAsync(FullPaymentRequest request, CancellationToken token);
-
-    Task<BrusnikaPayResponse<PaymentResponse>> PreparePaymentAsync(PreparePaymentRequest request, CancellationToken token);
-
-    Task<BrusnikaPayResponse<List<OperationItem>>> GetOperationsAsync(GetOperationsRequest request, CancellationToken token);
-}
 
 public sealed class BrusnikaPayHttpClient(HttpClient _httpClient) : IBrusnikaPayHttpClient
 {
@@ -60,5 +52,18 @@ public sealed class BrusnikaPayHttpClient(HttpClient _httpClient) : IBrusnikaPay
         var response = await _httpClient.SendAsync(message, token);
 
         return await response.Content.ReadFromJsonAsync<BrusnikaPayResponse<List<OperationItem>>>(token);
+    }
+
+    public async Task<BrusnikaPayResponse<List<BankItem>>> GetBankListAsync(CancellationToken token)
+    {
+        var message = new HttpRequestMessage
+        {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri(_httpClient.BaseAddress + "masterdata/bank/list"),
+        };
+
+        var response = await _httpClient.SendAsync(message, token);
+
+        return await response.Content.ReadFromJsonAsync<BrusnikaPayResponse<List<BankItem>>>(token);
     }
 }

@@ -11,62 +11,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da695ce2-bf28-436a-9243-3efa2323f7f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Payment/Dto/CreatePayment/CreatePaymentDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Payment/Dto/CreatePayment/CreatePaymentResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Payment/Dto/UpdateOperation/UpdateOperationDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Payment/IPaymentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Users/Dto/GetOperations/CursorPagination.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Users/Dto/GetOperations/GetOperationsDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Users/IUsersService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Sort/ICursorSortable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Database/Extensions/QueryableExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/BrusnikaPayErrorDelegatingHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Operations/GetOperationsRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Operations/OperationItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/Request/MerchantData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/BackgroundServices/SynchronizeOperationJob.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/Controllers/HttpContextExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/Controllers/Users/Dto/Operations/GetOperationsRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/Controllers/Webhooks/Dto/WebhookRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/Controllers/Webhooks/WebhookController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentation/Filters/ExceptionHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Hashing/HashExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/UserService/CachedUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Database/PaymentDbContextFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/BankItem/BankItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/IBrusnikaPayHttpClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/HealthChecks/BruskinaPayHealthCheck.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/HealthChecks/HealthChecksFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RealIT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RealIT/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Payment/CreatePayment/CreatePaymentRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Payments/Dto/CreatePaymentRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Payment/PaymentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Payment/PaymentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/GetOrCreate/GetOrCreateUserRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Users/Dto/Login/LoginRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/TokenGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/TokenGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/UsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/UsersService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Operations/Enums/Currency.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Operations/Enums/OperationStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Operations/Enums/OperationStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Operations/Enums/OperationType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/Dto/GetOperations/CursorPagination.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Dto/GetOperations/CursorPagination.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/ITokenGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/TokenService/ITokenGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/IUsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/UserService/IUsersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/TokenGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/TokenService/TokenGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/UsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/UserService/UsersService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Operations/Operation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Operations/Operation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Users/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Users/ValueObjects/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Users/ValueObjects/Login.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/DI/ServiceCollectionExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/Configurations/OperationConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Database/Configurations/OperationConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/Configurations/UserConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Database/Configurations/UserConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/Migrations/20250906230931_Init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/Migrations/20250906230931_Init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/Migrations/PaymentDbContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Database/PaymentDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Database/PaymentDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPayHttpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/BrusnikaPayHttpClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/Dto/BrusnikaPayResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/BrusnikaPayResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/Dto/Payment/PaymentResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/PaymentResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/Dto/Payment/Request/FullPaymentRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/Request/FullPaymentRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/Dto/Payment/Request/MerchantData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/Dto/Payment/Request/PreparePaymentRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/Request/PreparePaymentRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/BrusnikaPayHttpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/BrusnikaPayHttpClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/PaymentResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/HttpClients/BrusnikaPay/Dto/Payment/PaymentResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Presentation/Controllers/Payments/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Payments/PaymentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentation/Controllers/Users/Dto/LoginResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Users/Dto/Login/LoginResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Presentation/Controllers/Users/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Users/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentation/Presentation.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RealIT.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RealIT.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RealIT.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentation/Controllers/Webhooks/WebhookController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Controllers/Webhooks/WebhookController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/Web.csproj.user" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/WebApplicationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/WebApplicationExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web/appsettings.json" afterDir="false" />
@@ -88,6 +59,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4b21fc3f8a3abb5d25f06c622276fbec0fd3932f169cc6af520bf5abc6a46b4/DbSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4cfeb8b377bc81e1fbb5f7d7a02492cb6ac23e88c8c9d7155944f0716f3d4b/HttpResponseMessage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57f54b4f82b56a06d59c83a36fce97d6774c3ceda2b76c8d09ea472732769/EntityTypeBuilder`.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/696ea149e41ddc60bdd9238370d01ba5f417a4a91ce8ac42c17d4eee0afa038/RelationalConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7e9f4b29222e2d9f97ee02774e8c385e49ade1b5b467cb8545696c05d90/JsonConverterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8858bebb833de367e71ed840c0ddd76f6b8ecd903d1184434e64398c5e7f2726/FusionCacheOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/976e381ecce5530c7652f404fbe8836f3dcf64ab66c04f44c09f46efb58d23/ConnectionInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,6 +69,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d6bdacbebb97a6b45da04f35c17042e695ea2117c234ca9fddf6495516b2d783/JsonStringEnumConverter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f16564c8c4b61e6ea398fe412680c6b795b266584ccf6a362aed712dc4d2b387/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f74dafda2aad45d21ab9ffafaca1f75a3bce63c418d09d16a1728852649545e8/StackExchangeRedisCacheServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f82018601a80239ef83c53a5e5cd9b0877643b59eaa89b7109ecc501235b5f5/FusionCacheBuilderExtMethods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/mgsvt/my-repos/my/RealIT/Application/Users/Dto/GetOperations/CursorPagination.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -275,17 +249,17 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Presentation/Controllers/Webhooks/WebhookController.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\mgsvt\my-repos\my\RealIT\Presentation\Controllers\Payments\WebhookController.cs" containingFunctionPresentation="Method 'Catch'">
+          <url>file://$PROJECT_DIR$/Application/Payment/PaymentService.cs</url>
+          <line>111</line>
+          <properties documentPath="C:\Users\mgsvt\my-repos\my\RealIT\Application\Payment\PaymentService.cs" containingFunctionPresentation="Method 'UpdateOperationAsync'">
             <startOffsets>
-              <option value="513" />
+              <option value="3696" />
             </startOffsets>
             <endOffsets>
-              <option value="514" />
+              <option value="3697" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

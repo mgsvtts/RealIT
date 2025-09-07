@@ -1,15 +1,14 @@
-﻿using Application.Users.Dto;
-using Application.Users.Dto.GetOperations;
+﻿using Application.Users.Dto.GetOperations;
+using Application.Users.TokenService;
 using Domain.Operations;
 using Domain.Users;
 using Domain.Users.ValueObjects;
 using Infrastructure.Database;
 using Infrastructure.Database.Extensions;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Users;
+namespace Application.Users.UserService;
 
 public sealed class UsersService(
     PaymentDbContext _db,
@@ -40,7 +39,7 @@ public sealed class UsersService(
         return (user, true);
     }
 
-    public async Task<CursorPagination<Guid>> GetOperationsAsync(GetOperationsDto request, CancellationToken token)
+    public async Task<CursorPagination<Operation, Guid>> GetOperationsAsync(GetOperationsDto request, CancellationToken token)
     {
         const int page = 5; //fixed page is easier to cache, should be greater in real world
 
@@ -57,6 +56,6 @@ public sealed class UsersService(
             .Take(page + 1)
             .ToListAsync(token);
         
-        return new CursorPagination<Guid>(operations, 5);
+        return new CursorPagination<Operation, Guid>(operations, 5);
     }
 }

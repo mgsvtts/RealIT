@@ -19,7 +19,7 @@ public readonly record struct PaymentResponse
     public OperationStatus Status { get; init; }
     
     [JsonPropertyName("idTransactionMerchant")]
-    public string TransactionId { get; init; }
+    public string IdTransactionMerchant { get; init; }
     
     [JsonPropertyName("amountInitial")]
     public decimal AmountInitial { get; init; }

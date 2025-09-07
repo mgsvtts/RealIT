@@ -8,6 +8,7 @@ namespace Domain.Operations;
 public sealed class Operation : ICursorSortable<Guid>
 {
     public Guid Id { get; private set; }
+    public Guid ExternalId { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
     public OperationStatus Status { get; private set; }
@@ -36,11 +37,13 @@ public sealed class Operation : ICursorSortable<Guid>
     public void Update(
         OperationStatus status,
         decimal amount,
-        decimal commission)
+        decimal commission,
+        Guid? externalId = null)
     {
         Amount = amount;
         Status = status;
         Commission = commission;
+        ExternalId = externalId ?? ExternalId;
         UpdatedAt = DateTime.UtcNow;
     }
 }

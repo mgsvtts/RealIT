@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Domain.Users.ValueObjects;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Application.Users;
+namespace Application.Users.TokenService;
 
 public sealed class TokenGenerator(byte[] _key, string iss) : ITokenGenerator
 {

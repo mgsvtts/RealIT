@@ -1,6 +1,6 @@
 ﻿using Domain.Users.ValueObjects;
 
-namespace Application.Users;
+namespace Application.Users.TokenService;
 
 /// <summary>
 /// Generator for access tokens

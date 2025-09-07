@@ -1,8 +1,9 @@
 ﻿using Application.Users.Dto.GetOperations;
+using Domain.Operations;
 using Domain.Users;
 using Domain.Users.ValueObjects;
 
-namespace Application.Users;
+namespace Application.Users.UserService;
 
 /// <summary>
 /// Service for handling users and their operations
@@ -20,5 +21,5 @@ public interface IUsersService
     /// Gets operations connected with provided user using cursor pagination
     /// </summary>
     /// <returns>Cursor paginated operations</returns>
-    Task<CursorPagination<Guid>> GetOperationsAsync(GetOperationsDto request, CancellationToken token);
+    Task<CursorPagination<Operation, Guid>> GetOperationsAsync(GetOperationsDto request, CancellationToken token);
 }
