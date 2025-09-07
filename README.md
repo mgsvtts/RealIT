@@ -19,8 +19,8 @@ git clone https://github.com/mgsvtts/RealIT.git
 ```
 docker compose up -d
 ```
-4. Перейти по адресу https://localhost:5100/swagger/index.html
-5. Убедится что все запущенно вызвав https://localhost:5100/health
+4. Перейти по адресу http://localhost:5100/swagger/index.html
+5. Убедится что все запущенно вызвав http://localhost:5100/health
 
 ## Features
 
