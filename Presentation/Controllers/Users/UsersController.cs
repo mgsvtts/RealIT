@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Presentation.Controllers.Users.Dto;
 using Presentation.Controllers.Users.Dto.Login;
 using Presentation.Controllers.Users.Dto.Operations;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Presentation.Controllers.Users;
 
@@ -19,6 +20,7 @@ public sealed class UsersController(IUsersService _service) : ControllerBase
 {
     [HttpPut]
     [AllowAnonymous]
+    [SwaggerOperation(Summary = "Gets or creates a new user with provided login")]
     public async Task<ActionResult<LoginResponse>> Login(LoginRequest request, CancellationToken token)
     {
         var (user, created) = await _service.GetOrCreateUserAsync(new Login(request.Login), token);
@@ -32,7 +34,8 @@ public sealed class UsersController(IUsersService _service) : ControllerBase
     }
     
     [HttpGet("operations")]
-    public async Task<ActionResult<CursorPagination<Operation, Guid>>> GetOperations([FromQuery]GetOperationsRequest request, CancellationToken token)
+    [SwaggerOperation(Summary = "Gets user operations using cursor pagination")]
+    public async Task<ActionResult<CursorPagination<OperationResponseItem, Guid>>> GetOperations([FromQuery]GetOperationsRequest request, CancellationToken token)
     {
         var operations = await _service.GetOperationsAsync(new GetOperationsDto
         {
@@ -45,6 +48,6 @@ public sealed class UsersController(IUsersService _service) : ControllerBase
             UserId = HttpContext.GetUserIdOrThrow()
         }, token);
 
-        return Ok(operations);
+        return Ok(operations.MapUsing(OperationResponseItem.FromOperation));
     }
 }

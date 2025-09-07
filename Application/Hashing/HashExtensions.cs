@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 
-namespace Application.Caching;
+namespace Application.Hashing;
 
 public static class HashExtensions
 {

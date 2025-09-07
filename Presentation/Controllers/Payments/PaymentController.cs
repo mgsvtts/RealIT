@@ -4,6 +4,7 @@ using Application.Payment.Dto.CreatePayment;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Controllers.Payments.Dto;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Presentation.Controllers.Payments;
 
@@ -13,9 +14,10 @@ namespace Presentation.Controllers.Payments;
 public sealed class PaymentController(IPaymentService _paymentService) : ControllerBase
 {
     [HttpPost]
-    public async Task<ActionResult<CreatePaymentResult>> Create(CreatePaymentRequest request, CancellationToken token)
+    [SwaggerOperation(Summary = "Creates the payment link using BrusnikaPay")]
+    public async Task<ActionResult<CreatePaymentResponse>> Create(CreatePaymentRequest request, CancellationToken token)
     {
-        var response = await _paymentService.CreateAsync(new CreatePaymentDto
+        var result = await _paymentService.CreateAsync(new CreatePaymentDto
         {
             Amount = request.Amount,
             PaymentMethod = request.PaymentMethod,
@@ -23,6 +25,6 @@ public sealed class PaymentController(IPaymentService _paymentService) : Control
             UserIp = HttpContext.Connection.RemoteIpAddress
         }, token);
 
-        return Ok(response);
+        return Ok(CreatePaymentResponse.FromResult(result));
     }
 }

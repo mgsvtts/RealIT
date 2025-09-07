@@ -35,6 +35,7 @@ public static class WebApplicationExtensions
     {
         builder.Services.AddSwaggerGen(opt =>
         {
+            opt.EnableAnnotations();
             opt.DocumentFilter<HealthChecksFilter>();
             opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {

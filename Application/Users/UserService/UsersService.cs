@@ -1,4 +1,5 @@
-﻿using Application.Users.Dto.GetOperations;
+﻿using System.ComponentModel.DataAnnotations;
+using Application.Users.Dto.GetOperations;
 using Application.Users.TokenService;
 using Domain.Operations;
 using Domain.Users;
@@ -41,6 +42,12 @@ public sealed class UsersService(
 
     public async Task<CursorPagination<Operation, Guid>> GetOperationsAsync(GetOperationsDto request, CancellationToken token)
     {
+        if ((request.Cursor is null && request.CursorDate is not null) ||
+            (request.Cursor is not null && request.CursorDate is null))
+        {
+            throw new ValidationException("Both Cursor and CursorDate must be provided together");
+        }
+        
         const int page = 5; //fixed page is easier to cache, should be greater in real world
 
         var operations = await _db.Operations

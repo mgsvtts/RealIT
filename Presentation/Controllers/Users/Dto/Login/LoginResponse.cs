@@ -1,12 +1,18 @@
 ﻿using Domain.Users;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Presentation.Controllers.Users.Dto.Login;
 
 public readonly record struct LoginResponse
 {
-    public Guid Id { get; init; }
-    public string Login { get; init; }
-    public string AccessToken { get; init; }
+    [SwaggerSchema("Id of the user")]
+    public required Guid Id { get; init; }
+    
+    [SwaggerSchema("Login that was provided")]
+    public required string Login { get; init; }
+    
+    [SwaggerSchema("10 years long access token")]
+    public required string AccessToken { get; init; }
 
     public static LoginResponse FromUser(User user)
     {

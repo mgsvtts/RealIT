@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Presentation.Controllers.Users.Dto.Login;
 
-public sealed class LoginRequest
+public readonly record struct LoginRequest
 {
     [Required] 
-    public string Login { get; init; } = "";
+    [SwaggerSchema("Unique login of the user (will be converted to lower case)")]
+    public string Login { get; init; }
 }

@@ -14,11 +14,11 @@ public readonly record struct CursorPagination<T, TId> where T : ICursorSortable
 
     public bool HasNextCursor => NextCursor is not null && NextCursorDate is not null;
 
-    public CursorPagination(IEnumerable<T>? items, int page)
+    public CursorPagination(IEnumerable<T>? items, int maxPageSize)
     {
         var list = items?.ToList() ?? [];
 
-        var hasNextCursor = list.Count > page;
+        var hasNextCursor = list.Count > maxPageSize;
 
         NextCursor = hasNextCursor ? list[^1].Id : default;
         NextCursorDate = hasNextCursor ? list[^1].CreatedAt : null;
@@ -29,5 +29,22 @@ public readonly record struct CursorPagination<T, TId> where T : ICursorSortable
         }
 
         Items = list;
+    }
+
+    private CursorPagination(
+        IEnumerable<T> items, 
+        TId? nextCursor,
+        DateTime? nextCursorDate)
+    {
+        Items = items;
+        NextCursor = nextCursor;
+        NextCursorDate = nextCursorDate;
+    }
+
+    public CursorPagination<U, TId> MapUsing<U>(Func<T, U> converter) where U : ICursorSortable<TId>
+    {
+        var items = Items.Select(converter);
+
+        return new CursorPagination<U, TId>(items, NextCursor, NextCursorDate);
     }
 }

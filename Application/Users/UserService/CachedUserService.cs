@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Application.Caching;
+using Application.Hashing;
 using Application.Users.Dto.GetOperations;
 using Domain.Operations;
 using Domain.Users;
