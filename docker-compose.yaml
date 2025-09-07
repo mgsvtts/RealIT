@@ -1,0 +1,32 @@
+﻿services:
+  service:
+    build:
+      context: .
+      dockerfile: Web/Dockerfile
+    environment:
+      DOTNET_ENVIRONMENT: Production
+    ports:
+      - "5100:8080"
+      
+  postgres:
+    image: postgres:15.14-bookworm
+    restart: always
+    environment:
+      POSTGRES_DB: real_it_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+        
+  redis:
+    image: redis:latest 
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data 
+    
+volumes:
+  redis_data:
+  postgres_data:

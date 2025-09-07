@@ -11,9 +11,19 @@ public class UserConfig : IEntityTypeConfiguration<User>
     {
         builder.HasKey(x => x.Id);
         
-        builder.HasMany(b => b.Operations)
-            .WithOne(p => p.User)
-            .HasForeignKey(p => p.UserId);
+        builder.HasMany(x => x.Operations)
+            .WithOne(x => x.User)
+            .HasForeignKey(x => x.UserId);
+
+        builder.Property(x => x.Login)
+            .HasConversion(
+                x => x.Value,
+                y => new Login(y));
+
+        builder.Property(x => x.AccessToken)
+            .HasConversion(
+                x => x.Value, 
+                y => string.IsNullOrEmpty(y) ? default : new AccessToken(y));
 
         builder.HasIndex(x => x.Login).IsUnique();
     }

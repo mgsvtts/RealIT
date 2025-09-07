@@ -8,4 +8,6 @@ var app = WebApplication.CreateBuilder(args)
     .AddPresentation()
     .Build();
 
-app.AddMiddlewares().Run();
+app.RunMigrations()
+   .AddMiddlewares()
+   .Run();

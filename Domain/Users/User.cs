@@ -8,7 +8,7 @@ public sealed class User
     public Guid Id { get; private set; }
     public Login Login { get; private set; }
     public AccessToken AccessToken { get; private set; }
-    public IReadOnlyList<Operation> Operations { get; private set; } = [];
+    public IReadOnlyList<Operation> Operations { get; private set; } = null!;
 
     public static User Create(Login login)
     {

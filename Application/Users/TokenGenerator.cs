@@ -5,12 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Application.Users;
 
-public interface ITokenGenerator
-{
-    AccessToken Generate(Guid id);
-}
-
-public sealed class TokenGenerator(byte[] _key) : ITokenGenerator
+public sealed class TokenGenerator(byte[] _key, string iss) : ITokenGenerator
 {
     public AccessToken Generate(Guid id)
     {
@@ -23,6 +18,7 @@ public sealed class TokenGenerator(byte[] _key) : ITokenGenerator
                     new Claim("UserId", id.ToString()),
                 }
             ),
+            Issuer = iss,
             Expires = DateTime.UtcNow.AddYears(10),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature),
         };

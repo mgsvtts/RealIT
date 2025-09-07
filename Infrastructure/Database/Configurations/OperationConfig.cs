@@ -15,5 +15,6 @@ public class OperationConfig : IEntityTypeConfiguration<Operation>
             .HasForeignKey(p => p.UserId);
 
         builder.HasIndex(x => x.UserId);
+        builder.HasIndex(x => x.CreatedAt).IsDescending();
     }
 }

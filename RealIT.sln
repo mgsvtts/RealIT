@@ -8,7 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{BA1E049B-4BEB-4A84-B12C-5BC6DA6E4EEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{9C0FCFA9-EDA7-4FC7-8454-C9A6E660A2B8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F10695E-6BE2-4C37-A01D-3B6E90A8654D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{A6DABA17-0034-4ACE-A6BE-4BEDD56D25C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +37,9 @@ Global
 		{BA1E049B-4BEB-4A84-B12C-5BC6DA6E4EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1E049B-4BEB-4A84-B12C-5BC6DA6E4EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1E049B-4BEB-4A84-B12C-5BC6DA6E4EEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C0FCFA9-EDA7-4FC7-8454-C9A6E660A2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C0FCFA9-EDA7-4FC7-8454-C9A6E660A2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C0FCFA9-EDA7-4FC7-8454-C9A6E660A2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C0FCFA9-EDA7-4FC7-8454-C9A6E660A2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6DABA17-0034-4ACE-A6BE-4BEDD56D25C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DABA17-0034-4ACE-A6BE-4BEDD56D25C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DABA17-0034-4ACE-A6BE-4BEDD56D25C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DABA17-0034-4ACE-A6BE-4BEDD56D25C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
